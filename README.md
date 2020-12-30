@@ -22,3 +22,5 @@ This app is hosted on [Heroku](https://streamreels.herokuapp.com).
 - NodeJS with Express
 - Passport
 - Twitch API
+- React
+- Material UI
