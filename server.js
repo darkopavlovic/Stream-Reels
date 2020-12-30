@@ -2,6 +2,7 @@ const express = require("express");
 const session = require("cookie-session");
 const passport = require("passport");
 const cors = require("cors");
+const path = require("path");
 require("./config/passport");
 
 // Initialize Express and middlewares
@@ -32,6 +33,14 @@ app.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+// Prod environment
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
 
 // Port assignment
 const PORT = process.env.PORT;
