@@ -1,0 +1,33 @@
+{
+  "name": "stream-reels-api",
+  "version": "1.0.0",
+  "description": "Discovery platform for Twitch clips",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkopavlovic/Stream-Reels.git"
+  },
+  "author": "Darko Pavlovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darkopavlovic/Stream-Reels/issues"
+  },
+  "homepage": "https://github.com/darkopavlovic/Stream-Reels#readme",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9",
+    "passport": "^0.4.1",
+    "passport-oauth": "^1.0.0",
+    "request": "^2.88.2"
+  }
+}
