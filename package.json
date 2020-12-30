@@ -4,8 +4,11 @@
   "description": "Discovery platform for Twitch clips",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "setup": "npm install && cd client && npm install",
+    "backend": "nodemon server.js",
+    "client": "cd client && npm start",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
