@@ -3,7 +3,7 @@ import { Box } from "@material-ui/core";
 function LoginFooter() {
   return (
     <>
-      <Box>Footer</Box>
+      <Box style={{ background: "black", color: "white" }}>Footer</Box>
     </>
   );
 }
