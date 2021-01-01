@@ -11,7 +11,7 @@ function LoginNav() {
           <Typography variant="h5" style={{ flexGrow: 1 }}>
             Stream Reels
           </Typography>
-          <Button variant="contained" disableElevation={true} size="large" startIcon={<PlayArrowIcon />} href="/app" style={{ background: "#F0F0FF", color: "black", fontWeight: "bold" }}>
+          <Button variant="contained" disableElevation={true} size="large" startIcon={<PlayArrowIcon />} href="/app" style={{ background: "#F0F0FF", color: "black" }}>
             Watch Now
           </Button>
         </Toolbar>

@@ -8,9 +8,11 @@ const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET;
 const LIMIT = process.env.LIMIT;
 
 // Get trending clips from Twitch
-router.get("/trending/:period", async (req, res) => {
+router.get("/trending/:period/:cursor", async (req, res) => {
   try {
-    const response = await axios.get(`https://api.twitch.tv/kraken/clips/top?period=${req.params.period}&limit=${LIMIT}`, { headers: { "Client-ID": `${TWITCH_CLIENT_ID}`, "Accept": "application/vnd.twitchtv.v5+json" } });
+    const response = await axios.get(`https://api.twitch.tv/kraken/clips/top?period=${req.params.period}&limit=${LIMIT}&cursor=${req.params.cursor.replace("emptyCursor", "")}`, {
+      headers: { "Client-ID": `${TWITCH_CLIENT_ID}`, "Accept": "application/vnd.twitchtv.v5+json" }
+    });
     res.send(response.data);
   } catch (error) {
     res.status(400).json({ error: error.message });

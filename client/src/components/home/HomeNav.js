@@ -6,9 +6,11 @@ import WhatshotIcon from "@material-ui/icons/Whatshot";
 import { AppContext } from "../../context/AppContext";
 
 function HomeNav() {
-  const { theme, range } = useContext(AppContext);
+  const { theme, range, count, pagination } = useContext(AppContext);
   const [darkTheme, setDarkTheme] = theme;
   const [period, setPeriod] = range;
+  const [page, setPage] = count;
+  const [cursor, setCursor] = pagination;
 
   // Handle event for dark mode
   const darkMode = () => {
@@ -18,6 +20,8 @@ function HomeNav() {
   // Handle event for select
   const handleSelect = (e) => {
     setPeriod(e.target.value);
+    setPage(0);
+    setCursor("emptyCursor");
   };
 
   return (

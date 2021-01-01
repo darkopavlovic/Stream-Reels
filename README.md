@@ -1,4 +1,4 @@
-# Stream Reels API
+# Stream Reels
 
 Discovery platform for Twitch clips.
 

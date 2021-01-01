@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Avatar, ButtonGroup, Card, CardMedia, CardHeader, IconButton, Link, Snackbar } from "@material-ui/core";
+import { Avatar, ButtonGroup, Card, CardHeader, CardMedia, IconButton, Link, Snackbar } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import ShareIcon from "@material-ui/icons/Share";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -11,16 +11,16 @@ function Clip({ clip }) {
   const [open, setOpen] = useState(false);
   const { theme } = useContext(AppContext);
   const [darkTheme] = theme;
-  var videoUrl = null;
 
   // Handle share button
   const shareButton = () => {
     setOpen(true);
   };
 
+  // Close Alert
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
-      return;
+      setOpen(false);
     }
     setOpen(false);
   };
@@ -65,9 +65,8 @@ function Clip({ clip }) {
           </Alert>
         </Snackbar>
         <CardMedia>
-          <video width="100%" controls loop style={{ outline: "none" }}>
-            {(videoUrl = clip.thumbnails.tiny)}
-            <source src={videoUrl.replace("-preview-86x45.jpg", ".mp4")} type="video/mp4" />
+          <video width="100%" controls loop preload="none" poster={clip.thumbnails.medium} style={{ outline: "none" }}>
+            <source src={clip.thumbnails.tiny.replace("-preview-86x45.jpg", ".mp4")} type="video/mp4" />
           </video>
         </CardMedia>
       </Card>
