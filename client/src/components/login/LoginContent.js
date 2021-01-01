@@ -10,10 +10,10 @@ function LoginContent() {
           Viral Twitch Moments
         </Typography>
         <Typography variant="h5">Download Now</Typography>
-        <Button href="https://www.twitch.tv" target="_blank" rel="noopener noreferrer">
+        <Button href="" target="_blank" rel="noopener noreferrer">
           <img src={AppleStore} alt="App Store Link" />
         </Button>
-        <Button href="https://www.twitch.tv" target="_blank" rel="noopener noreferrer">
+        <Button href="" target="_blank" rel="noopener noreferrer">
           <img src={GooglePlay} alt="Google Play Link" />
         </Button>
       </Box>

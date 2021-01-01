@@ -1,27 +1,23 @@
-import { useState, useContext } from "react";
-import { AppBar, Avatar, Button, FormControlLabel, Menu, MenuItem, Switch, Toolbar, Typography } from "@material-ui/core";
+import { useContext } from "react";
+import { AppBar, FormControl, FormControlLabel, MenuItem, Select, Switch, Toolbar, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import MovieFilterIcon from "@material-ui/icons/MovieFilter";
+import WhatshotIcon from "@material-ui/icons/Whatshot";
 import { AppContext } from "../../context/AppContext";
 
 function HomeNav() {
-  const [anchor, setAnchor] = useState(null);
-  const { theme } = useContext(AppContext);
+  const { theme, range } = useContext(AppContext);
   const [darkTheme, setDarkTheme] = theme;
-
-  // Handle event for opening menu
-  const handleMenu = (event) => {
-    setAnchor(event.currentTarget);
-  };
-
-  // Handle event for closing menu
-  const handleClose = () => {
-    setAnchor(null);
-  };
+  const [period, setPeriod] = range;
 
   // Handle event for dark mode
   const darkMode = () => {
     setDarkTheme(!darkTheme);
+  };
+
+  // Handle event for select
+  const handleSelect = (e) => {
+    setPeriod(e.target.value);
   };
 
   return (
@@ -32,24 +28,20 @@ function HomeNav() {
           <Typography variant="h5" style={{ flexGrow: 1 }}>
             Stream Reels
           </Typography>
+          <WhatshotIcon style={{ paddingRight: "3px" }} />
+          <Typography variant="h6" style={{ paddingRight: "15px" }}>
+            Trending
+          </Typography>
+          <FormControl style={{ paddingRight: "20px" }}>
+            <Select value={period} onChange={handleSelect} style={{ color: "white" }}>
+              <MenuItem value="day">Today</MenuItem>
+              <MenuItem value="week">Week</MenuItem>
+              <MenuItem value="month">Month</MenuItem>
+              <MenuItem value="all">All Time</MenuItem>
+            </Select>
+          </FormControl>
           <FormControlLabel control={<Switch checked={darkTheme} onChange={darkMode} />} style={{ marginRight: "0px" }} />
           <Brightness4Icon style={{ marginRight: "15px" }} />
-          <Button onClick={handleMenu}>
-            <Avatar alt="LegendOfDarko" src="https://static-cdn.jtvnw.net/jtv_user_pictures/48d5b0b5-fe5f-4cc5-95f9-ccf981bb00fd-profile_image-300x300.png" />
-          </Button>
-          <Menu
-            anchor={anchor}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right"
-            }}
-            keepMounted
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-            open={Boolean(anchor)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-          </Menu>
         </Toolbar>
       </AppBar>
     </>

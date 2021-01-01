@@ -7,13 +7,12 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-// Assign Twitch API variables
-const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
-const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET;
-
 // Initialize Express and middlewares
 const app = express();
 app.use(cors());
+
+// Twitch API route
+app.use("/twitch", require("./routes/twitch"));
 
 // Prod environment
 if (process.env.NODE_ENV === "production") {
