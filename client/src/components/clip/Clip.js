@@ -65,7 +65,7 @@ function Clip({ clip }) {
           </Alert>
         </Snackbar>
         <CardMedia>
-          <video width="100%" controls loop preload="none" poster={clip.thumbnails.medium} style={{ outline: "none" }}>
+          <video width="100%" controls loop preload="none" poster={clip.thumbnails.medium} style={{ outline: "none", objectFit: "fill" }}>
             <source src={clip.thumbnails.tiny.replace("-preview-86x45.jpg", ".mp4")} type="video/mp4" />
           </video>
         </CardMedia>
