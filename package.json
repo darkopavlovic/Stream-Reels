@@ -1,7 +1,7 @@
 {
   "name": "stream-reels-api",
   "version": "1.0.0",
-  "description": "Discovery platform for Twitch clips",
+  "description": "Discovery tool for Twitch clips",
   "main": "server.js",
   "scripts": {
     "setup": "npm install && cd client && npm install",

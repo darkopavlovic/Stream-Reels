@@ -1,6 +1,6 @@
 # Stream Reels ![GitHub package.json version](https://img.shields.io/github/package-json/v/darkopavlovic/stream-reels) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-Discovery platform for Twitch clips.
+Discovery tool for Twitch clips.
 
 Stream Reels pulls the popular Twitch clips of the day. The user can also filter the clips by week, month, and all time. This web app serves as a proof of concept to build an automated Reddit/TikTok style app to view trending Twitch clips.
 
