@@ -23,3 +23,7 @@ This app is hosted on [Heroku](https://streamreels.herokuapp.com).
 - Twitch API
 - React
 - Material UI
+
+# License
+
+This project is licensed under the MIT License.
