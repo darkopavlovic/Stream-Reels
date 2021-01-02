@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppBar, FormControl, FormControlLabel, MenuItem, Select, Switch, Toolbar, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import MovieFilterIcon from "@material-ui/icons/MovieFilter";
@@ -23,6 +23,20 @@ function HomeNav() {
     setPage(0);
     setCursor("emptyCursor");
   };
+
+  useEffect(() => {
+    const data = localStorage.getItem("darkMode");
+    if (data === "false") {
+      setDarkTheme(false);
+    } else {
+      setDarkTheme(true);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkTheme);
+  });
 
   return (
     <>

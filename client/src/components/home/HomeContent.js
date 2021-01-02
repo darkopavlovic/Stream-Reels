@@ -25,11 +25,12 @@ function HomeContent() {
     }
   }
 
+  // Loads next page of clips
   function nextPage() {
     setPage(page + 1);
   }
 
-  // Calls getClips on period update
+  // Calls getClips on period and page update
   useEffect(() => {
     window.scrollTo(0, 0);
     getClips();
@@ -38,7 +39,7 @@ function HomeContent() {
 
   return (
     <>
-      <Box style={darkTheme ? { background: "#262626" } : { background: "white" }}>
+      <Box style={darkTheme ? { background: "#262626" } : { background: "#F0F0FF" }}>
         <Container maxWidth="md" disableGutters={true} style={{ paddingTop: "60px" }}>
           {clips.map((clip) => (
             <Clip key={clip.slug} clip={clip} />

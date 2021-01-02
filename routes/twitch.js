@@ -4,7 +4,6 @@ const axios = require("axios");
 
 // Assign Twitch API variables
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
-const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET;
 const LIMIT = process.env.LIMIT;
 
 // Get trending clips from Twitch

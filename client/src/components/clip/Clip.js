@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Avatar, ButtonGroup, Card, CardHeader, CardMedia, IconButton, Link, Snackbar } from "@material-ui/core";
+import { Avatar, Box, ButtonGroup, Card, CardHeader, CardMedia, IconButton, Link, Snackbar } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import ShareIcon from "@material-ui/icons/Share";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -33,9 +33,17 @@ function Clip({ clip }) {
     <>
       <Card raised={true} style={darkTheme ? { background: "black", color: "white", marginTop: "20px" } : { background: "white", marginTop: "20px" }}>
         <CardHeader
-          avatar={<Avatar src={clip.broadcaster.logo} />}
+          avatar={
+            <Link href={clip.broadcaster.channel_url} target="_blank" rel="noopener noreferrer">
+              <Avatar src={clip.broadcaster.logo} />
+            </Link>
+          }
           title={clip.title}
-          subheader={`${clip.broadcaster.display_name} | ${clip.game} | ${clip.views} views`}
+          subheader={
+            <Box style={darkTheme ? { color: "white" } : { color: "black" }}>
+              {clip.broadcaster.display_name} | {clip.game} | {clip.views} views
+            </Box>
+          }
           action={
             <ButtonGroup variant="text">
               <IconButton onClick={shareButton}>
@@ -65,7 +73,7 @@ function Clip({ clip }) {
           </Alert>
         </Snackbar>
         <CardMedia>
-          <video width="100%" controls loop preload="none" poster={clip.thumbnails.medium} style={{ outline: "none", objectFit: "fill" }}>
+          <video width="100%" controls loop preload="none" poster={clip.thumbnails.medium} style={{ outline: "none" }}>
             <source src={clip.thumbnails.tiny.replace("-preview-86x45.jpg", ".mp4")} type="video/mp4" />
           </video>
         </CardMedia>

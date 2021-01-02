@@ -5,7 +5,7 @@ import GooglePlay from "../assets/play-store-badge.svg";
 function LoginContent() {
   return (
     <>
-      <Box style={{ paddingTop: "100px", paddingBottom: "25px", textAlign: "center" }}>
+      <Box style={{ paddingTop: "100px", paddingBottom: "25px", textAlign: "center", background: "#F0F0FF" }}>
         <Typography variant="h2" style={{ paddingBottom: "10px" }}>
           Viral Twitch Moments
         </Typography>
