@@ -4,7 +4,7 @@ export const AppContext = createContext();
 
 export const AppProvider = (props) => {
   const [darkTheme, setDarkTheme] = useState(false);
-  const [period, setPeriod] = useState("all");
+  const [period, setPeriod] = useState("day");
   const [page, setPage] = useState(0);
   const [cursor, setCursor] = useState("emptyCursor");
 
